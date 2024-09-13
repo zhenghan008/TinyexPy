@@ -1,6 +1,6 @@
 cimport tinyexpy
 from libc cimport stdlib
-from typing import List, Callable, Any
+from typing import List
 
 
 
