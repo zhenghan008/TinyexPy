@@ -2,8 +2,7 @@ cimport tinyexpy
 from libc cimport stdlib
 from typing import List
 
-
-
+DEF SIZE_VARS = 100
 
 
 cdef class Tinyexpy:
@@ -28,10 +27,10 @@ cdef class Tinyexpy:
         cdef int var_count = len(py_vars)
         cdef int c_err
         cdef te_expr *n
-        cdef double[100] x
+        cdef double[SIZE_VARS] x
         cdef double r
         cdef te_variable c_te_variable
-        cdef te_variable[100] vars
+        cdef te_variable[SIZE_VARS] vars
         py_expression = expression.encode("utf8")
         c_expression = py_expression
         for i, each_py_vars in enumerate(py_vars):
@@ -71,4 +70,13 @@ cdef class Tinyexpy:
              te_free(n)
              print(f"Evaluating:\n\t{c_expression.decode('utf8')}\nResult:\n\t{r}\n")
              return r
-          
+
+
+
+
+
+
+
+
+
+
